@@ -140,4 +140,7 @@ mkdir $HOSTNAME
 # restart Apache
 /etc/init.d/apache2 restart
 
+# chown deployments.log
+chown deploy:deploy /home/deploy/deployments.log
+
 exit 0
