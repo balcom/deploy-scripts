@@ -57,7 +57,7 @@ fi
 sed -i.bak "/PRODUCTION_URL/d" production
 
 echo ""
-echo "Do you wish to enable the production site now (Y/n)?"
+echo -n "Do you wish to enable the production site now (Y/n)?"
 read -e YES_OR_NO
 if [ "$YES_OR_NO" == "y" ] || [ "$YES_OR_NO" == "Y"] || [ "$YES_OR_NO" == 'yes' ] || [ "$YES_OR_NO" == "Yes"]; then
   echo "Enabling production site..."
@@ -76,7 +76,7 @@ fi
 sed -i.bak "/^STAGING_URL/d" staging
 
 echo ""
-echo "Do you wish to enable the staging site now (Y/n)?"
+echo -n "Do you wish to enable the staging site now (Y/n)?"
 read -e YES_OR_NO
 if [ "$YES_OR_NO" == "y" ] || [ "$YES_OR_NO" == "Y"] || [ "$YES_OR_NO" == 'yes' ] || [ "$YES_OR_NO" == "Yes"]; then
   echo "Enabling staging site..."
@@ -141,6 +141,7 @@ mkdir $HOSTNAME
 /etc/init.d/apache2 restart
 
 # chown deployments.log
+"chown deploy:deploy /home/deploy/deployments.log..."
 chown deploy:deploy /home/deploy/deployments.log
 
 exit 0
