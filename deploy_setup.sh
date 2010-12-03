@@ -133,7 +133,9 @@ echo "| Housekeeping |"
 echo "================"
 # get varnish cache set up for this hostname
 cd /var/lib/varnish/
+echo "removing default varnish lib..."
 rm -r balcom-drupal-stack/
+echo "create new varnish lib using hostname (/var/lib/varnish/$HOSTNAME)..."
 mkdir $HOSTNAME
 /etc/init.d/varnish restart
 
